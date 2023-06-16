@@ -1,0 +1,57 @@
+.form-style {
+	max-width: 400px;
+	padding: 20px 12px 10px 20px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+
+.form-style .field-divided{
+	width: 49%;
+}
+
+.form-style .field-long{
+	width: 100%;
+}
+
+.form-style .field-textarea{
+	height: 100px;
+}
+.form--button{
+	background:  rgb(12, 48, 80);
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+}
+.form--button:hover{
+	background:  rgb(16, 58, 95);
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+.button--form__visibility{
+    background:  rgb(31, 34, 58);
+	padding: 8px 15px 8px 15px;
+	border: none;
+	color: #fff;
+	font-size: 17px;
+	font-family: 'Scada', sans-serif;
+}
+
+.button--form__visibility:hover{
+	background:  rgb(16, 58, 95);
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
