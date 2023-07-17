@@ -1,0 +1,143 @@
+.sabtasklist--grid__wrapper{
+    display: grid;
+    position: relative;
+
+    grid-template-columns: 166px 1fr;
+}
+
+.button--sabtask__clouse{
+    grid-column: 1;
+    font-family: 'Scada', sans-serif;
+    background-color: rgb(37, 73, 104);
+    color: aliceblue;
+    margin: 0px 24px;
+    width: 124px;
+    border-radius: 0px 5px 5px 5px;
+    text-decoration:none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.button--sabtask__open{
+    grid-column: 1;
+    font-family: 'Scada', sans-serif;
+    background-color: rgb(37, 73, 104);
+    color: aliceblue;
+    margin: 0px 24px;
+    width: 124px;
+    border-radius: 0px 5px 0px 0px;
+    text-decoration:none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.button--sabtask__clouse:hover{
+    background-color: rgb(31, 34, 58);
+}
+
+.button--sabtask__open:hover{
+    background-color: rgb(31, 34, 58);
+}
+
+.form--wrapper{
+    grid-column: 2;
+
+}
+
+.no__sabtask{
+    font-family: 'Scada', sans-serif;
+    background-color: #7995a5;
+    color: aliceblue;
+    margin: 1px 24px;
+    width: 124px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.sabtask--block__wrapper{
+    position: absolute;
+    left: 667px;
+    top: -100px;
+}
+
+.sabtask--block__hidden{
+    visibility: hidden;
+}
+
+.sabtask--block{
+    background-color: #7995a5;
+    border-bottom: 2px #83A4C5;
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 4px 10px;
+    min-height: 90px;
+    min-width: 250px;
+}
+
+
+.sabtask--name{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.sabtask--description{
+    font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.button__roll--up{
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
+}
+
+.sabtasklist__trash--button{
+    background-color:  #65808f;
+    border-radius: 0px 0px 5px 5px;
+    border: 2px solid  #65808f;
+
+    float: right;
+    position: relative;
+    left: -60px;
+    top: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    
+}
+
+.sabtasklist__tick--button{
+    background-color:  #65808f;
+    border-radius: 0px 0px 5px 5px;
+    border: 2px solid  #65808f;
+
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    top: 4px;
+}
+
+.sabtasklist__tick--button:hover{
+    background-color: #ff9a47;
+    border: 2px solid  #ff9a47;
+}
+
+.sabtasklist__trash--button:hover{
+    background-color: #475f6b;
+    border: 2px solid  #475f6b;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.sabtask--name__done{
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: line-through;
+}
+
+.sabtask--description__done{
+    font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-decoration: line-through;
+}

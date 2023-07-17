@@ -1,0 +1,77 @@
+.noTask{
+    margin: 24px;
+    padding: 4px;
+    font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: rgb(157, 173, 185);
+    margin-right: 80%;
+    border-radius: 5px;
+}
+
+.taskList--wrapper{
+    grid-column: 1;
+    margin: 0px 12px 0px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid rgb(31, 34, 58);
+    border-radius: 5px 0px 5px 5px;
+    width: 996px;
+}
+
+.caption{
+    
+    font-family: 'Scada', sans-serif;
+    margin: 20px 36px 0px;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    background-color: rgb(31, 34, 58);
+    padding: 8px 8px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.remove--task-l{
+    margin: 0px 36px 0px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: rgb(31, 34, 58);
+    padding: 4px 4px 4px;
+    border-radius: 0px 0px 5px 5px;
+    cursor: pointer;
+}
+
+.butoon-wrapper{
+    margin: 0px 0px 12px;
+    display: grid;
+    grid-template-columns: 900px 50px;
+}
+
+.tick{
+    /* margin: 0px 870px 0px; */
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: rgb(31, 34, 58);
+    padding: 4px 4px 4px;
+    border-radius: 0px 0px 5px 5px;
+    cursor: pointer;
+}
+
+.tick:hover{
+    background-color: #ff9a47;
+}
+
+.remove--task-l:hover{
+    background:  rgb(16, 58, 95);
+}
+
+
+.taskList--grid{
+    display: grid;
+
+    grid-template-columns: 1015px 1fr;
+}
+
+.form--grid{
+    grid-column: 2;
+}
+
+.wrapper{
+    margin: 20px;
+}
