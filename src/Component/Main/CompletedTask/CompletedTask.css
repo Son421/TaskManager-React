@@ -1,0 +1,41 @@
+.completedTask--title{
+    text-align: center;
+	font-family: 'Scada', sans-serif;
+	margin: 0px 0px 0px 0px;
+	font-size: 24px;
+}
+
+.completedTask--flex__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.completedTask--wrapper{
+	margin: 0px 12px 0px;
+    background-color: rgb(255, 255, 255);
+    border: 4px solid #576E86;
+    border-radius: 5px 5px 5px 5px;
+    width: 996px;
+}
+
+.noTask{
+    margin: 24px;
+    padding: 4px;
+    font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-color: rgb(157, 173, 185);
+    margin-right: 70%;
+    border-radius: 5px;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+}
+
+.completedTask--clear{
+    font-size: 24px;
+    color: rgb(31, 34, 58);
+    float: right;
+    margin: 4px 8px;
+    cursor: pointer;
+}
+

@@ -7,7 +7,7 @@
     background:  rgb(16, 58, 95);
     color: aliceblue;
     margin: 12px 24px 0px 24px;
-    width: 624px;
+    max-width: 624px;
     border-radius: 5px 5px 5px 0px;
 
     display: grid;
@@ -21,6 +21,7 @@
     grid-column: 2;
     grid-row: 1 / 2;
 
+    max-width: 625px;
     font-weight: bold;
     font-size: 17px;
 }
@@ -30,6 +31,7 @@
     grid-column: 2;
     grid-row: 3;
 
+    max-width: 625px;
     font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
@@ -99,9 +101,9 @@
     grid-row:  2;
 
     font-weight: bold;
-    background-color: rgb(35, 70, 100);
-    border: 1px solid rgb(35, 70, 100);
-        outline: none;
+    background:  rgb(16, 58, 95);
+    border: 1px solid  rgb(16, 58, 95);
+    outline: none;
     color: aliceblue;
     font-size: 17;
 }
@@ -112,9 +114,9 @@
     grid-row: 3;
 
     font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    background-color: rgb(35, 70, 100);
-    border: 1px solid rgb(35, 70, 100);
-        outline: none;
+    background-color:  rgb(16, 58, 95);
+    border: 1px solid rgb(16, 58, 95);
+    outline: none;
     color: aliceblue;
     resize:none;
     overflow: hidden;
@@ -137,4 +139,18 @@ input[type="text"]
     grid-column: 1;
 }
 
+.button--done{
+    display: grid;   
+    grid-column: 4;
+    grid-row: 4;
+    font-size: 22px;
+    cursor: pointer;
+    color: aliceblue;
+
+
+   
+}
   
+/* .button--done:hover{
+
+} */

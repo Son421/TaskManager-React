@@ -5,6 +5,10 @@
     background-color: rgb(157, 173, 185);
     margin-right: 80%;
     border-radius: 5px;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
 }
 
 .taskList--wrapper{

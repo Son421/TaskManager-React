@@ -129,6 +129,7 @@
 
 .hidden{
     visibility: hidden;
+    float: right;
 }
 
 .sabtask--name__done{

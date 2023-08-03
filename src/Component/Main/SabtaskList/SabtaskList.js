@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './SabtaskList.css';
 import Form from "../Form/Form";
 import Sabtask from "./Sabtask/Sabtask";
@@ -14,8 +14,19 @@ export default function SabtaskList(props) {
 
     const [visibiluty, setVisibility] = useState(false);
 
-    const [elements, setElemets] = useState({elementName: ' ', elementDescription: '', 
+    const [elements, setElemets] = useState({elementName: '', elementDescription: '', 
     elementHiddenStyle: 'sabtask--block__hidden', elementIndex: 0, elementDone: false});
+
+    useEffect(() => {
+     setTaskItems(props.element);
+    }, []);
+
+
+  useEffect(() => {
+    addSub();
+  }, [taskItems]);
+
+  
 
   function changeVisibility(){
     setVisibility(!visibiluty);
@@ -26,14 +37,18 @@ export default function SabtaskList(props) {
   }
 
   function sabtaskBlock(elemN, elemD, index){
-      setElemets({elementName: elemN, elementIndex: index,  elementDescription: elemD, elementHiddenStyle: "sabtask--block"});
+    setElemets({elementName: elemN, elementIndex: index,  elementDescription: elemD, elementHiddenStyle: "sabtask--block", elementDone: taskItems[index].done});
   }
 
   function clouseElemnet(){
     setElemets({elementHiddenStyle: 'sabtask--block__hidden'});
   }
 
-  props.addsabtask(taskItems);
+  function addSub(){
+    props.addsabtask(taskItems);
+  }
+ 
+
   
 
   function remove(){
@@ -46,10 +61,8 @@ export default function SabtaskList(props) {
 
     function done(){
       taskItems[elements.elementIndex].done = true;
-      // setElemets({})'
-      // elementDone: taskItems[index].done 
-      let styleUpdetet = elements
-      console.log(taskItems);
+      setTaskItems(taskItems.slice(0));
+      sabtaskBlock(elements.elementName, elements.elementDescription, elements.elementIndex);
   }
 
 
@@ -69,9 +82,8 @@ export default function SabtaskList(props) {
               <TiTimes className="button__roll--up" onClick={clouseElemnet}/>
               <p className={elements.elementDone ? "sabtask--name__done": "sabtask--name" }> {elements.elementName} </p>
               <p className={elements.elementDone ? "sabtask--description__done":  "sabtask--description"}> {elements.elementDescription} </p>
-              <TiTickOutline onClick={done} className="sabtasklist__tick--button"/>
-              <TiTrash  onClick={remove} className="sabtasklist__trash--button" />
-              {/* потім треба буде додати віжуалі хідден до кнопок при виконанні сабтаска */}
+              <TiTickOutline onClick={done} className={elements.elementDone ? "hidden" : "sabtasklist__tick--button"}/>
+              <TiTrash  onClick={remove} className={elements.elementDone ? "hidden" :"sabtasklist__trash--button"} />
             </div>
           </div>
         </div>
@@ -91,10 +103,10 @@ export default function SabtaskList(props) {
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
               <TiTimes className="button__roll--up" onClick={clouseElemnet}/>
-              <p className={elements.elementDone ? "sabtask--name__done":  "sabtask--name"}> {elements.elementName} </p>
-              <p className={elements.elementDone ? "sabtask--description__done":  "sabtask--description"}> {elements.elementDescription} </p>
-              <TiTickOutline onClick={done} className="sabtasklist__tick--button"/>
-              <TiTrash onClick={remove} className="sabtasklist__trash--button" />
+              <p className={elements.elementDone  ? "sabtask--name__done":  "sabtask--name"}> {elements.elementName} </p>
+              <p className={elements.elementDone  ? "sabtask--description__done":  "sabtask--description"}> {elements.elementDescription} </p>
+              <TiTickOutline onClick={done} className={elements.elementDone ? "hidden" : "sabtasklist__tick--button"}/>
+              <TiTrash  onClick={remove} className={elements.elementDone ? "hidden" :"sabtasklist__trash--button"} />
             </div>
           </div>
         </div>

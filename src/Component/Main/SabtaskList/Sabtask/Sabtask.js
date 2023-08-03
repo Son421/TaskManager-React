@@ -6,10 +6,11 @@ export default function Sabtask(props) {
         props.sabtaskBlock(props.element.name, props.element.description, props.id);
     }
 
+    
     return (
         <div>
             <div>
-                <button onClick={showBlock} className="sabtasklist__element"> {props.element.name} </button>
+                <button onClick={showBlock} className={props.element.done ? "sabtasklist__element__done" : "sabtasklist__element"}> {props.element.name} </button>
             </div>
         </div>
     );

@@ -5,7 +5,8 @@ import CompletedTask from "./CompletedTask/CompletedTask";
 
 export default function Main(props) {
 
-
+  
+// ?????
   if(!props.shownCompleted){
     return (
       <div>
@@ -21,3 +22,12 @@ export default function Main(props) {
   }
   
 }
+
+  // ???
+  // return(
+  //   <div>
+  //     <div>
+  //       <ShowTask/>
+  //     </div>
+  //   </div>
+  // );

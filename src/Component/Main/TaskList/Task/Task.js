@@ -5,6 +5,7 @@ import { TiTrash } from "react-icons/ti";
 import { TiPencil } from "react-icons/ti";
 import { TiTick } from "react-icons/ti";
 import { TiStarFullOutline } from "react-icons/ti";
+import { TiTickOutline} from "react-icons/ti";
 
 export default function Task(props) {
   const [visibility, setVisibility] = useState(false);
@@ -38,7 +39,7 @@ export default function Task(props) {
     props.element.name = taskEdit.name;
     props.element.description = taskEdit.description;
     setVisibility(false);
-    
+    // треба виправити те що редагування не збeрігається в локалсторедж
   }
 
   function activePriority(){
@@ -50,8 +51,17 @@ export default function Task(props) {
 
   function addsabtask(sabtask){
     props.element.subtaskArr = sabtask;
+    props.addSubtask();
+    // !!!
   }
+  
 
+  // console.log( props.element.subtaskArr);
+
+  function done(){
+    props.element.done = true; 
+    props.completeTask();
+  }
 
 
   if (!visibility){
@@ -61,11 +71,12 @@ export default function Task(props) {
           <TiStarFullOutline className={priority ? "button--priority__active": "button--priority"}  onClick={activePriority}/>
           <TiTrash onClick={activate} className="button--remove"/>
           <TiPencil onClick={changeVisibility} className="button--edit"/>
+          <TiTickOutline onClick={done} className="button--done"/>
           <p className="task--name"> {props.element.name}</p>
           <p className="task--description"> {props.element.description} </p>
        </div>   
        <div  className="sabtask--wrapper">
-          <SabtaskList addsabtask={addsabtask}/>
+          <SabtaskList element={props.element.subtaskArr} addsabtask={addsabtask}/>
        </div>
       </div>
     );
@@ -81,7 +92,7 @@ export default function Task(props) {
             </div>
           </form>
           <div  className="sabtask--wrapper">
-            <SabtaskList addsabtask={addsabtask}/>
+            <SabtaskList element={props.element.subtaskArr} addsabtask={addsabtask}/>
           </div>
           
       </div>

@@ -17,11 +17,12 @@
 
 
 .form-style-4{
+	position: absolute;
 	width: 450px;
 	font-size: 16px;
 	background-color: rgb(31, 34, 58);
 	padding: 30px 30px 15px 30px;
-	border: 5px solid  rgb(39, 43, 73);
+	border: 5px solid  rgb(105, 109, 139);
 	margin: 24px;
 }
 
@@ -188,6 +189,7 @@
 
 
 .form-style-5{
+
 	width: 450px;
 	font-size: 16px;
 	background-color: rgb(31, 34, 58);
