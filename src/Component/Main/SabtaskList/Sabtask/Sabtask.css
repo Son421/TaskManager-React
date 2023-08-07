@@ -1,0 +1,28 @@
+.sabtasklist__element{
+    background-color: #7995a5;
+    color: aliceblue;
+    margin: 0px 24px;
+    min-width: 124px;
+    max-width: 124px;
+    text-decoration:none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    /* align-content: left; */
+    min-height: 20px;
+}
+
+.sabtasklist__element__done{
+    background-color: #a2b7c4;
+    color: aliceblue;
+    margin: 0px 24px;
+    min-width: 124px;
+    max-width: 124px;
+    text-decoration:none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    /* align-content: left; */
+    min-height: 20px;
+    text-decoration: line-through;
+}

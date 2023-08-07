@@ -1,0 +1,44 @@
+.header--wrapper{
+    margin: 0px 0px 20px 0px;
+}
+
+.header__line{
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+
+    background-color: rgb(31, 34, 58);
+    color: aliceblue;
+}
+
+.header__logo{
+    grid-column: 1;
+    /* grid-row: 1; */
+    font-family: 'Yanone Kaffeesatz';
+    font-size: 24px;
+    padding: 24px;
+    /* cursor: pointer; */
+}
+
+/* .header__nav li{
+    grid-column: 2;
+    display: inline;
+    cursor: pointer;
+} */
+
+.header__complete--task{
+    /* width: 120px; */
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    padding: 24px;
+    
+}
+
+.header__complete--button{
+    cursor: pointer;
+}
+
+.header__complete--button:hover{
+    color: rgb(192, 197, 201);
+}
