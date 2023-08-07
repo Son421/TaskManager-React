@@ -1,0 +1,140 @@
+.grid--wrapper{
+  display: grid;
+  grid-template-columns: 672px 624px;
+}
+
+.task{
+    background-color: rgb(35, 70, 100);
+    color: aliceblue;
+    margin: 24px 24px 0px 24px;
+    width: 624px;
+    border-radius: 5px 5px 5px 0px;
+
+    display: grid;
+    grid-column: 1;
+    grid-template-columns: 18px 1fr 18px 22px;
+    grid-template-rows: 18px 20px 40px 24px;
+}
+
+.task--name{
+    display: grid;   
+    grid-column: 2;
+    grid-row: 1 / 2;
+
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.task--description{
+  display: grid;   
+  grid-column: 2;
+  grid-row: 3;
+
+  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* === button === */
+.button--priority{
+  display: grid;   
+  grid-column: 1;
+  grid-row: 1;
+  padding: 2px;
+
+  cursor: pointer;
+  color: rgba(229, 232, 243, 0.192);
+}
+
+.button--priority__active{
+  display: grid;   
+  grid-column: 1;
+  grid-row: 1;
+  padding: 2px;
+  cursor: pointer;
+  color: rgb(229, 232, 243);
+}
+
+.button--remove{
+  display: grid;   
+  grid-column: 4;
+  grid-row: 1;
+  padding: 2px;
+
+  cursor: pointer;
+  font-size: 19px;
+}
+
+.button--remove:hover{
+  color: rgb(229, 232, 243);
+}
+
+.button--edit{
+  display: grid;   
+  grid-column: 3;
+  grid-row: 1;
+  padding: 2px;
+
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.button--edit:hover{
+  color: rgb(229, 232, 243);
+}
+
+.button--confirm{
+  display: grid;   
+  grid-column: 4;
+  grid-row: 4;
+
+  cursor: pointer;
+  font-size: 24px;
+  color: aliceblue;
+}
+
+/*  edit form  */
+
+.task__name--edit{
+  display: grid;   
+  grid-column: 2;
+  grid-row:  2;
+
+  font-weight: bold;
+  background-color: rgb(35, 70, 100);
+  border: 1px solid rgb(35, 70, 100);
+	outline: none;
+  color: aliceblue;
+  font-size: 17;
+}
+
+.task__description--edit{
+  display: grid;   
+  grid-column: 2;
+  grid-row: 3;
+
+  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: rgb(35, 70, 100);
+  border: 1px solid rgb(35, 70, 100);
+	outline: none;
+  color: aliceblue;
+  resize:none;
+	overflow: hidden;
+}
+
+input[type="text"]
+{
+
+    font-weight: bold;
+    font-size:17px;
+}
+
+.sabtask--wrapper{
+  display: grid;
+  grid-column: 1;
+}
+
+.sabtask__from--wrapper{
+  display: grid;
+  grid-column: 2;
+}
+
+
