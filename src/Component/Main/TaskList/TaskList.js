@@ -11,13 +11,15 @@ export default function TaskList(props) {
 
     const [completedTaskItem, setCompletedTaskItem] = useState([]);
 
+    let localStWrapper = 0; 
+
     useEffect(() => {
         setTaskItems(props.element.taskArr);
     }, []);
 
     useEffect(() => {
-        completedT();
-    }, []);
+        completed();
+    }, [props, localStWrapper]);
 
     useEffect(() => {
         addTask();
@@ -26,17 +28,14 @@ export default function TaskList(props) {
     useEffect(() => {
         if(completedTaskItem.length !== 0){
             localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
+            localStWrapper++;
         }
     }, [completedTaskItem]);
 
     function completeTask(){
-        completedT();
-        // console.log(JSON.parse(localStorage.getItem('completedTaskItem')));
-        // console.log(completedTaskItem);
         let completed = taskItems.find(el => el.done === true);
         let up = completedTaskItem.concat(completed);
         setCompletedTaskItem(up);
-        console.log(completedTaskItem);
         let removed = taskItems.filter(el => el.done === false);
         setTaskItems(removed);
     }
@@ -64,10 +63,9 @@ export default function TaskList(props) {
         setTaskItems(taskItems.slice(0));
     }
 
-    function completedT(){
+    function completed(){
         let items = JSON.parse(localStorage.getItem('completedTaskItem'));
         setCompletedTaskItem(items);
-        console.log({completedTaskItem});
     }
 
     if( taskItems.length > 0){   
