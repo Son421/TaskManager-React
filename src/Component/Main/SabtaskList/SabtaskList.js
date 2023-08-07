@@ -47,9 +47,6 @@ export default function SabtaskList(props) {
   function addSub(){
     props.addsabtask(taskItems);
   }
- 
-
-  
 
   function remove(){
     taskItems[elements.elementIndex].complete = true;
@@ -58,11 +55,10 @@ export default function SabtaskList(props) {
     setElemets({elementHiddenStyle: 'sabtask--block__hidden'});
   }
 
-
-    function done(){
-      taskItems[elements.elementIndex].done = true;
-      setTaskItems(taskItems.slice(0));
-      sabtaskBlock(elements.elementName, elements.elementDescription, elements.elementIndex);
+  function done(){
+    taskItems[elements.elementIndex].done = true;
+    setTaskItems(taskItems.slice(0));
+    sabtaskBlock(elements.elementName, elements.elementDescription, elements.elementIndex);
   }
 
 

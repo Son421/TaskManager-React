@@ -5,7 +5,6 @@
 	color: #fff;
 	font-family: 'Scada', sans-serif;
 	border-radius: 0px 5px 5px 0px;
-
 }
 
 .button--form__visibility:hover{
@@ -31,12 +30,13 @@
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #fff;
-
 }
+
 .form-style-4 label {
 	display:block;
 	margin-bottom: 10px;
 }
+
 .form-style-4 label > span{
 	display: inline-block;
 	width: 150px;

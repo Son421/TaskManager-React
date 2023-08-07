@@ -1,7 +1,8 @@
 .completed__task--wrapper{
     background: #576E86;
     color: rgb(31, 34, 58);
-    margin: 12px 24px 12px 24px;
+    border: 3px solid rgb(31, 34, 58);
+    margin: 12px 24px 0px 24px;
     padding: 4px;
     max-width: 624px;
     /* border: 1px solid  aliceblue; */
@@ -9,7 +10,7 @@
 }
 
 .completed__task--name{
-    margin: 3px 12px;
+    margin: 0px 12px 3px;
     padding: 4px;
     max-width: 625px;
     font-weight: bold;
@@ -28,4 +29,24 @@
     float: right;
     cursor: pointer;
     margin: 2px 4px;
+}
+
+.completed__task--prioriti{
+    color: rgb(229, 232, 243);
+}
+
+.completed__task--no_prioriti{
+    color: rgba(229, 232, 243, 0.192);
+}
+
+.completed__taskList{
+    background-color: rgb(31, 34, 58);
+    color: rgb(229, 232, 243);
+    font-weight: bold;
+    border-radius: 0px 0px 5px 5px;
+    padding: 2px;
+}
+
+.completed--wrapper{
+    margin: 0px 12px 12px 30px ;
 }
