@@ -44,23 +44,20 @@ export default function Task(props) {
 
   function activePriority(){
     props.element.priority = !props.element.priority;
-    console.log(props.element.priority);
     let b = !priority; 
     setPriority(b);
+     // треба виправити те що пріорітетність не хберігається в локалсторедж
   }
 
   function addsabtask(sabtask){
     props.element.subtaskArr = sabtask;
     props.addSubtask();
   }
-  
-  // console.log( props.element.subtaskArr);
 
   function done(){
     props.element.done = true; 
     props.completeTask();
   }
-
 
   if (!visibility){
     return (
@@ -92,7 +89,6 @@ export default function Task(props) {
           <div  className="sabtask--wrapper">
             <SabtaskList element={props.element.subtaskArr} addsabtask={addsabtask}/>
           </div>
-          
       </div>
     );
   }

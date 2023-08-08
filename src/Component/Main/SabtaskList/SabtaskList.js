@@ -21,19 +21,16 @@ export default function SabtaskList(props) {
      setTaskItems(props.element);
     }, []);
 
-
-  useEffect(() => {
-    addSub();
-  }, [taskItems]);
-
-  
+    useEffect(() => {
+      addSub();
+    }, [taskItems]);
 
   function changeVisibility(){
     setVisibility(!visibiluty);
   }
 
-    function addProperty(elem){
-      setTaskItems(elem.version = 'Subtask');
+  function addProperty(elem){
+    setTaskItems(elem.version = 'Subtask');
   }
 
   function sabtaskBlock(elemN, elemD, index){
@@ -61,8 +58,6 @@ export default function SabtaskList(props) {
     sabtaskBlock(elements.elementName, elements.elementDescription, elements.elementIndex);
   }
 
-
-
   if(taskItems.length > 0){
     if(!visibiluty){
       return (
@@ -71,7 +66,7 @@ export default function SabtaskList(props) {
             <button className="button--sabtask__clouse" onClick={changeVisibility}> Subtask <TiArrowSortedDown/> </button>
           </div>
           <div className="form--wrapper">
-           <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
+            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
           </div>
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
@@ -99,8 +94,8 @@ export default function SabtaskList(props) {
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
               <TiTimes className="button__roll--up" onClick={clouseElemnet}/>
-              <p className={elements.elementDone  ? "sabtask--name__done":  "sabtask--name"}> {elements.elementName} </p>
-              <p className={elements.elementDone  ? "sabtask--description__done":  "sabtask--description"}> {elements.elementDescription} </p>
+              <p className={elements.elementDone ? "sabtask--name__done":  "sabtask--name"}> {elements.elementName} </p>
+              <p className={elements.elementDone ? "sabtask--description__done":  "sabtask--description"}> {elements.elementDescription} </p>
               <TiTickOutline onClick={done} className={elements.elementDone ? "hidden" : "sabtasklist__tick--button"}/>
               <TiTrash  onClick={remove} className={elements.elementDone ? "hidden" :"sabtasklist__trash--button"} />
             </div>
