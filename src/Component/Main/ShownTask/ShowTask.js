@@ -6,12 +6,10 @@ import './ShowTask.css'
 export default function ShowTask(props) {
   const [taskItems, setTaskItems] = useState([]);
 
-  // localStorage.clear();
-
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('taskItems'));
     if(items){
-        setTaskItems(items);
+      setTaskItems(items);
     }
   }, []);
 
@@ -39,8 +37,8 @@ export default function ShowTask(props) {
           <Form version={'TaskList'} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
         </div>
         {taskItems.map((i, index) => (
-                    <TaskList element={i} key={index} addToTaskArr={addToTaskArr} removeTaskList={removeTaskList} />
-                ))}
+          <TaskList element={i} key={index} addToTaskArr={addToTaskArr} removeTaskList={removeTaskList} />
+        ))}
       </div>
     );
   }else{
