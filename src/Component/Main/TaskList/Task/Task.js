@@ -52,10 +52,8 @@ export default function Task(props) {
   function addsabtask(sabtask){
     props.element.subtaskArr = sabtask;
     props.addSubtask();
-    // !!!
   }
   
-
   // console.log( props.element.subtaskArr);
 
   function done(){

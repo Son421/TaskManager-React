@@ -12,22 +12,21 @@ export default function CompletedTask(props) {
       if(items){
             setCompletedTaskItem(items);
       }
-    }, []);
+  }, []);
 
-    useEffect(() => {
-      localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
-      }, [completedTaskItem]);
+  useEffect(() => {
+    localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
+  }, [completedTaskItem]);
 
-      function remove(){
+    function remove(){
         let removed = completedTaskItem.filter(el => el.complete === false);
         setCompletedTaskItem(removed);
     }
 
+    function clear(){
+      setCompletedTaskItem([]);
+    }
 
-      function clear(){
-        setCompletedTaskItem([]);
-      }
-  
 
  if(completedTaskItem.length > 0){
   return (

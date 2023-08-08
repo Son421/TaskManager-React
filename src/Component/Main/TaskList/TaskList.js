@@ -11,35 +11,34 @@ export default function TaskList(props) {
 
     const [completedTaskItem, setCompletedTaskItem] = useState([]);
 
+    let localStWrapper = 0; 
+
     useEffect(() => {
         setTaskItems(props.element.taskArr);
-      }, []);
-
+    }, []);
 
     useEffect(() => {
-    addTask();
+        completed();
+    }, [props, localStWrapper]);
+
+    useEffect(() => {
+        addTask();
     }, [taskItems]);
 
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('completedTaskItem'));
-        if(items){
-              setCompletedTaskItem(items);
+        if(completedTaskItem.length !== 0){
+            localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
+            localStWrapper++;
         }
-      }, []);
-
-    useEffect(() => {
-        localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
-        }, [completedTaskItem]);
-
+    }, [completedTaskItem]);
 
     function completeTask(){
         let completed = taskItems.find(el => el.done === true);
-        let compleat = completedTaskItem.concat(completed);
-        setCompletedTaskItem(compleat);
+        let up = completedTaskItem.concat(completed);
+        setCompletedTaskItem(up);
         let removed = taskItems.filter(el => el.done === false);
         setTaskItems(removed);
     }
-
 
     function addProperty(elem){
         setTaskItems(elem.priority = false, elem.subtaskArr = [], elem.version = 'Task', elem.taskListIs = props.element.name);
@@ -62,6 +61,11 @@ export default function TaskList(props) {
 
     function addSubtask(){
         setTaskItems(taskItems.slice(0));
+    }
+
+    function completed(){
+        let items = JSON.parse(localStorage.getItem('completedTaskItem'));
+        setCompletedTaskItem(items);
     }
 
     if( taskItems.length > 0){   
