@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Constant from "../../Constant";
 import './Form.css'
 import { TiArrowSortedDown } from "react-icons/ti";
 import { TiArrowSortedUp } from "react-icons/ti";
@@ -18,10 +19,10 @@ export default function Form(props) {
   let styleVersion = '';
   let styleVersionButton = '';
 
-  if(props.version === 'Task'){
+  if(props.version === Constant.TaskVersion){
     styleVersion = 'form-style-4'
     styleVersionButton = 'button--form__visibility'
-  }else if(props.version === 'Subtask'){
+  }else if(props.version === Constant.subtaskVersion){
     styleVersion = 'form-style-1'
     styleVersionButton = 'button__form__visibility--sabtask'
   }else{

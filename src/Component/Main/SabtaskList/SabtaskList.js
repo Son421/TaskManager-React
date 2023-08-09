@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import './SabtaskList.css';
 import Form from "../Form/Form";
 import Sabtask from "./Sabtask/Sabtask";
+import Constant from "../../Constant";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { TiTimes } from "react-icons/ti";
@@ -29,7 +30,7 @@ export default function SabtaskList(props) {
   }
 
   function addProperty(elem){
-    setTaskItems(elem.version = 'Subtask');
+    setTaskItems(elem.version = Constant.subtaskVersion);
   }
 
   function sabtaskBlock(elemN, elemD, index){
@@ -65,7 +66,7 @@ export default function SabtaskList(props) {
             <button className="button--sabtask__clouse" onClick={changeVisibility}> Subtask <TiArrowSortedDown/> </button>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
+            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={Constant.subtaskVersion}/> 
           </div>
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
@@ -88,7 +89,7 @@ export default function SabtaskList(props) {
             ))}
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
+            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={Constant.subtaskVersion}/> 
           </div>
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
@@ -111,7 +112,7 @@ export default function SabtaskList(props) {
             <button className="button--sabtask__clouse" onClick={changeVisibility}> Subtask <TiArrowSortedDown/> </button>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
+            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={Constant.subtaskVersion}/> 
           </div>
         </div>
       );
@@ -123,7 +124,7 @@ export default function SabtaskList(props) {
             <div className="no__sabtask"> Сабтасків немає </div>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={'Subtask'}/> 
+            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={Constant.subtaskVersion}/> 
           </div>
         </div>
       );
