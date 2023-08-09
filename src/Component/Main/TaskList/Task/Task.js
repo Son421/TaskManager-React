@@ -39,14 +39,12 @@ export default function Task(props) {
     props.element.name = taskEdit.name;
     props.element.description = taskEdit.description;
     setVisibility(false);
-    // треба виправити те що редагування не збeрігається в локалсторедж
   }
 
   function activePriority(){
     props.element.priority = !props.element.priority;
     let b = !priority; 
     setPriority(b);
-     // треба виправити те що пріорітетність не хберігається в локалсторедж
   }
 
   function addsabtask(sabtask){

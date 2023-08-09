@@ -3,7 +3,6 @@ import './CompletedTask.css'
 import CompletedItem from "./CompletedItem/CompletedItem";
 import { TiTrash } from "react-icons/ti";
 
-
 export default function CompletedTask(props) {
   const [completedTaskItem, setCompletedTaskItem] = useState([]);
 
@@ -65,6 +64,5 @@ export default function CompletedTask(props) {
     </div>
   );
  }
-  
 }
 

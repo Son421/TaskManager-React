@@ -8,22 +8,21 @@ import { TiTimes } from "react-icons/ti";
 import { TiTickOutline } from "react-icons/ti";
 import { TiTrash } from "react-icons/ti";
 
-
 export default function SabtaskList(props) {
-    const [taskItems, setTaskItems] = useState([]);
+  const [taskItems, setTaskItems] = useState([]);
 
-    const [visibiluty, setVisibility] = useState(false);
+  const [visibiluty, setVisibility] = useState(false);
 
-    const [elements, setElemets] = useState({elementName: '', elementDescription: '', 
-    elementHiddenStyle: 'sabtask--block__hidden', elementIndex: 0, elementDone: false});
+  const [elements, setElemets] = useState({elementName: '', elementDescription: '', 
+  elementHiddenStyle: 'sabtask--block__hidden', elementIndex: 0, elementDone: false});
 
-    useEffect(() => {
-     setTaskItems(props.element);
-    }, []);
+  useEffect(() => {
+    setTaskItems(props.element);
+  }, []);
 
-    useEffect(() => {
-      addSub();
-    }, [taskItems]);
+  useEffect(() => {
+    addSub();
+  }, [taskItems]);
 
   function changeVisibility(){
     setVisibility(!visibiluty);

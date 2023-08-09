@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import TaskList from "../TaskList/TaskList";
 import Form from "../Form/Form"
-import './ShowTask.css'
 
 export default function ShowTask(props) {
   const [taskItems, setTaskItems] = useState([]);
@@ -50,5 +49,4 @@ export default function ShowTask(props) {
       </div>
     );
   }
-  
 }

@@ -3,7 +3,6 @@ import './Form.css'
 import { TiArrowSortedDown } from "react-icons/ti";
 import { TiArrowSortedUp } from "react-icons/ti";
 
-
 export default function Form(props) {
   const [visibiluty, setVisibility] = useState(false);
 
@@ -14,7 +13,6 @@ export default function Form(props) {
     description: '',
     complete: false,
     done: false
-  // dateCreation
   });
 
   let styleVersion = '';
@@ -60,7 +58,6 @@ export default function Form(props) {
     }
   }
   
-
   if(!visibiluty){
     return (
       <div>

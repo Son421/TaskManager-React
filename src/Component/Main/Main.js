@@ -1,5 +1,4 @@
 import React from "react";
-import './Main.css'
 import ShowTask from "./ShownTask/ShowTask";
 import CompletedTask from "./CompletedTask/CompletedTask";
 

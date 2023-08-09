@@ -14,7 +14,6 @@
 	-webkit-box-shadow:none;
 }
 
-
 .form-style-4{
 	position: absolute;
 	width: 450px;
@@ -73,7 +72,6 @@
 	border-bottom: 1px dashed #D9FFA9;
 }
 
-
 .form-style-4 button{
 	max-width: 70px;
 	background: #576E86;
@@ -87,8 +85,6 @@
 .form-style-4 button:hover{
 	background: #394D61;
 }
-
-
 
 .button__form__visibility--sabtask{
     font-family: 'Scada', sans-serif;
@@ -107,11 +103,6 @@
 	background-color: rgb(31, 34, 58);
 }
 
-/* form style error */
-
-
-/*  sabtask form */
-
 .form-style-1{
 	width: 409px;
 	font-size: 16px;
@@ -127,12 +118,13 @@
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #fff;
-
 }
+
 .form-style-1 label {
 	display:block;
 	margin-bottom: 10px;
 }
+
 .form-style-1 label > span{
 	display: inline-block;
 	width: 144px;
@@ -150,6 +142,7 @@
 	font-style: italic;
 	color: aliceblue;
 }
+
 .form-style-1 textarea{
 	font-style: italic;
 	padding: 0px;
@@ -169,7 +162,6 @@
 	border-bottom: 1px dashed #D9FFA9;
 }
 
-
 .form-style-1 button{
 	background: #576E86;
 	border: none;
@@ -183,18 +175,12 @@
 	background: #394D61;
 }
 
-
-/*  TaskList form ///////////////////////////////////////////////////////////////////*/
-
-
-
 .form-style-5{
 
 	width: 450px;
 	font-size: 16px;
 	background-color: rgb(31, 34, 58);
 	padding: 30px 30px 15px 30px;
-	/* border: 5px solid  rgb(39, 43, 73); */
 	border: none;
 	margin: 20px 24px 24px 0px;
 	border-radius: 0px 5px 5px 0px;
@@ -205,12 +191,13 @@
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #fff;
-
 }
+
 .form-style-5 label {
 	display:block;
 	margin-bottom: 10px;
 }
+
 .form-style-5 label > span{
 	display: inline-block;
 	width: 150px;
@@ -228,6 +215,7 @@
 	font-style: italic;
 	color: aliceblue;
 }
+
 .form-style-5 textarea{
 	visibility: hidden;
 }
@@ -237,7 +225,6 @@
 {
 	border-bottom: 1px dashed #D9FFA9;
 }
-
 
 .form-style-5 button{
 	position: relative;
@@ -277,8 +264,6 @@
 	visibility: hidden;
 }
 
-
-/* error */
 .form-style-4.form__error input[type=text]{
 	border-bottom: 1px dashed #da1010;
 }

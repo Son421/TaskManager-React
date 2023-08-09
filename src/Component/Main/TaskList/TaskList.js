@@ -5,7 +5,6 @@ import Task from "./Task/Task";
 import { TiTrash } from "react-icons/ti";
 import { TiTickOutline } from "react-icons/ti";
 
-
 export default function TaskList(props) {
     const [taskItems, setTaskItems] = useState([]);
 
