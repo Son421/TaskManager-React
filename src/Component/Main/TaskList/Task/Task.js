@@ -15,8 +15,6 @@ export default function Task(props) {
     description: props.element.description
   });
 
-  const [priority, setPriority] = useState(false);
-
   function activate(){
     props.element.complete = true; 
     props.remove();
@@ -38,13 +36,13 @@ export default function Task(props) {
   function clickEdid(){
     props.element.name = taskEdit.name;
     props.element.description = taskEdit.description;
+    props.remove();
     setVisibility(false);
   }
 
   function activePriority(){
     props.element.priority = !props.element.priority;
-    let b = !priority; 
-    setPriority(b);
+    props.remove();
   }
 
   function addsabtask(sabtask){
@@ -61,14 +59,14 @@ export default function Task(props) {
     return (
       <div className="grid--wrapper">
         <div className="task">
-          <TiStarFullOutline className={priority ? "button--priority__active": "button--priority"}  onClick={activePriority}/>
+          <TiStarFullOutline className={props.element.priority ? "button--priority__active": "button--priority"}  onClick={activePriority}/>
           <TiTrash onClick={activate} className="button--remove"/>
           <TiPencil onClick={changeVisibility} className="button--edit"/>
           <TiTickOutline onClick={done} className="button--done"/>
           <p className="task--name"> {props.element.name}</p>
           <p className="task--description"> {props.element.description} </p>
        </div>   
-       <div  className="sabtask--wrapper">
+       <div className="sabtask--wrapper">
           <SabtaskList element={props.element.subtaskArr} addsabtask={addsabtask}/>
        </div>
       </div>
@@ -79,12 +77,12 @@ export default function Task(props) {
           <form>
             <div className="task">
               <TiTick onClick={clickEdid}  className="button--confirm" />
-              <TiStarFullOutline className={priority ? "button--priority__active": "button--priority"} onClick={activePriority}/>
+              <TiStarFullOutline className={props.element.priority ? "button--priority__active": "button--priority"} onClick={activePriority}/>
               <input type="text"  autoComplete="off" name="name" className="task__name--edit" value={taskEdit.name} onChange={handleChange}/> 
               <textarea name="description" className="task__description--edit" value={taskEdit.description} onChange={handleChange} ></textarea>
             </div>
           </form>
-          <div  className="sabtask--wrapper">
+          <div className="sabtask--wrapper">
             <SabtaskList element={props.element.subtaskArr} addsabtask={addsabtask}/>
           </div>
       </div>
