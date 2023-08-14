@@ -5,7 +5,6 @@
     margin: 12px 24px 0px 24px;
     padding: 4px;
     max-width: 624px;
-    /* border: 1px solid  aliceblue; */
     border-radius: 5px;
 }
 
@@ -44,9 +43,13 @@
     color: rgb(229, 232, 243);
     font-weight: bold;
     border-radius: 0px 0px 5px 5px;
-    padding: 2px;
+    padding: 4px;
 }
 
 .completed--wrapper{
     margin: 0px 12px 12px 30px ;
+    display: grid;
+    grid-template-columns: 250px 300px;
 }
+
+

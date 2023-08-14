@@ -6,7 +6,6 @@
     margin-right: 80%;
     border-radius: 5px;
     min-height: 80px;
-
     display: flex;
     align-items: center;
 }
@@ -21,7 +20,6 @@
 }
 
 .caption{
-    
     font-family: 'Scada', sans-serif;
     margin: 20px 36px 0px;
     color: rgb(255, 255, 255);
@@ -48,7 +46,6 @@
 }
 
 .tick{
-    /* margin: 0px 870px 0px; */
     color: rgb(255, 255, 255);
     font-size: 24px;
     background-color: rgb(31, 34, 58);
@@ -65,10 +62,8 @@
     background:  rgb(16, 58, 95);
 }
 
-
 .taskList--grid{
     display: grid;
-
     grid-template-columns: 1015px 1fr;
 }
 

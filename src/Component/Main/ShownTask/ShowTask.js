@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from "react";
 import TaskList from "../TaskList/TaskList";
 import Form from "../Form/Form"
-import './ShowTask.css'
+import constants from "../../constants";
 
 export default function ShowTask(props) {
   const [taskItems, setTaskItems] = useState([]);
 
-  // localStorage.clear();
-
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('taskItems'));
     if(items){
-        setTaskItems(items);
+      setTaskItems(items);
     }
   }, []);
 
@@ -20,7 +18,7 @@ export default function ShowTask(props) {
   }, [taskItems]);
 
   function addProperty(elem){
-    setTaskItems(elem.version = 'TaskList', elem.taskArr = []);
+    setTaskItems(elem.version = constants.TaskListVersion, elem.taskArr = []);
   }
 
   function addToTaskArr(){
@@ -36,21 +34,20 @@ export default function ShowTask(props) {
     return (
       <div>
         <div>
-          <Form version={'TaskList'} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
+          <Form version={constants.TaskListVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
         </div>
         {taskItems.map((i, index) => (
-                    <TaskList element={i} key={index} addToTaskArr={addToTaskArr} removeTaskList={removeTaskList} />
-                ))}
+          <TaskList element={i} key={index} addToTaskArr={addToTaskArr} removeTaskList={removeTaskList} />
+        ))}
       </div>
     );
   }else{
     return(
       <div>
-        <Form version={'TaskList'} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} />
+        <Form version={constants.TaskListVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} />
         <div>         
         </div>
       </div>
     );
   }
-  
 }

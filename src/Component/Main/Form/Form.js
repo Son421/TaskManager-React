@@ -1,8 +1,8 @@
 import React, {useState} from "react";
+import constants from "../../constants";
 import './Form.css'
 import { TiArrowSortedDown } from "react-icons/ti";
 import { TiArrowSortedUp } from "react-icons/ti";
-
 
 export default function Form(props) {
   const [visibiluty, setVisibility] = useState(false);
@@ -14,16 +14,15 @@ export default function Form(props) {
     description: '',
     complete: false,
     done: false
-  // dateCreation
   });
 
   let styleVersion = '';
   let styleVersionButton = '';
 
-  if(props.version === 'Task'){
+  if(props.version === constants.TaskVersion){
     styleVersion = 'form-style-4'
     styleVersionButton = 'button--form__visibility'
-  }else if(props.version === 'Subtask'){
+  }else if(props.version === constants.subtaskVersion){
     styleVersion = 'form-style-1'
     styleVersionButton = 'button__form__visibility--sabtask'
   }else{
@@ -60,7 +59,6 @@ export default function Form(props) {
     }
   }
   
-
   if(!visibiluty){
     return (
       <div>
@@ -75,11 +73,11 @@ export default function Form(props) {
         <form className={styleVersion}>
           <label>
             <span> {props.version} name</span>
-            <input type="text" name="name" autoComplete="off" value={taskItem.name} onChange={handleChange} />
+            <input type="text" name="name" autoComplete="off" value={taskItem.name} onChange={handleChange} maxlength="70" />
           </label>
           <label>
             <span className="visibility"> {props.version} description</span>
-            <textarea name="description" value={taskItem.description} onChange={handleChange}  ></textarea>
+            <textarea name="description" value={taskItem.description} onChange={handleChange} maxlength="250" ></textarea>
           </label>
             <button  type="button" onClick={addTaskItem}> Send </button>
         </form>
