@@ -9,7 +9,6 @@
     margin: 12px 24px 0px 24px;
     max-width: 624px;
     border-radius: 5px 5px 5px 0px;
-
     display: grid;
     grid-column: 1;
     grid-template-columns: 18px 1fr 18px 22px;
@@ -20,7 +19,6 @@
     display: grid;   
     grid-column: 2;
     grid-row: 1 / 2;
-
     max-width: 625px;
     font-weight: bold;
     font-size: 17px;
@@ -30,18 +28,15 @@
     display: grid;   
     grid-column: 2;
     grid-row: 3;
-
     max-width: 625px;
     font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-/* === button === */
 .button--priority{
     display: grid;   
     grid-column: 1;
     grid-row: 1;
     padding: 2px;
-
     cursor: pointer;
     color: rgba(229, 232, 243, 0.192);
 }
@@ -60,7 +55,6 @@
     grid-column: 4;
     grid-row: 1;
     padding: 2px;
-
     cursor: pointer;
     font-size: 19px;
 }
@@ -74,7 +68,6 @@
     grid-column: 3;
     grid-row: 1;
     padding: 2px;
-
     cursor: pointer;
     font-size: 17px;
 }
@@ -87,19 +80,15 @@
     display: grid;   
     grid-column: 4;
     grid-row: 4;
-
     cursor: pointer;
     font-size: 24px;
     color: aliceblue;
 }
 
-/*  edit form  */
-
 .task__name--edit{
     display: grid;   
     grid-column: 2;
     grid-row:  2;
-
     font-weight: bold;
     background:  rgb(16, 58, 95);
     border: 1px solid  rgb(16, 58, 95);
@@ -112,7 +101,6 @@
     display: grid;   
     grid-column: 2;
     grid-row: 3;
-
     font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     background-color:  rgb(16, 58, 95);
     border: 1px solid rgb(16, 58, 95);
@@ -122,8 +110,7 @@
     overflow: hidden;
 }
 
-input[type="text"]
-{
+input[type="text"]{
     font-weight: bold;
     font-size:17px;
 }
@@ -146,11 +133,5 @@ input[type="text"]
     font-size: 22px;
     cursor: pointer;
     color: aliceblue;
-
-
-   
 }
   
-/* .button--done:hover{
-
-} */

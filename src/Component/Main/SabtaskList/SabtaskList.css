@@ -1,7 +1,6 @@
 .sabtasklist--grid__wrapper{
     display: grid;
     position: relative;
-
     grid-template-columns: 166px 1fr;
 }
 
@@ -43,7 +42,6 @@
 
 .form--wrapper{
     grid-column: 2;
-
 }
 
 .no__sabtask{
@@ -75,7 +73,6 @@
     min-width: 250px;
 }
 
-
 .sabtask--name{
     font-weight: bold;
     font-size: 17px;
@@ -95,21 +92,18 @@
     background-color:  #65808f;
     border-radius: 0px 0px 5px 5px;
     border: 2px solid  #65808f;
-
     float: right;
     position: relative;
     left: -60px;
     top: 4px;
     font-size: 20px;
     cursor: pointer;
-    
 }
 
 .sabtasklist__tick--button{
     background-color:  #65808f;
     border-radius: 0px 0px 5px 5px;
     border: 2px solid  #65808f;
-
     font-size: 20px;
     cursor: pointer;
     float: right;

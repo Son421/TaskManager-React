@@ -6,7 +6,6 @@ export default function Sabtask(props) {
         props.sabtaskBlock(props.element.name, props.element.description, props.id);
     }
 
-    
     return (
         <div>
             <div>
@@ -14,6 +13,5 @@ export default function Sabtask(props) {
             </div>
         </div>
     );
-
 }
 
