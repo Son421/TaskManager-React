@@ -1,0 +1,11 @@
+.subtaskcompleted--button{
+    background-color: #7995a5;
+    color: aliceblue;
+    margin: 0px 24px;
+    width: 124px;
+    text-decoration:none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    min-height: 20px;
+}

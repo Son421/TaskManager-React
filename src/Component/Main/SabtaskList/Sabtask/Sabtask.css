@@ -8,7 +8,6 @@
     border: none;
     padding: 4px;
     cursor: pointer;
-    /* align-content: left; */
     min-height: 20px;
 }
 
@@ -22,7 +21,6 @@
     border: none;
     padding: 4px;
     cursor: pointer;
-    /* align-content: left; */
     min-height: 20px;
     text-decoration: line-through;
 }
