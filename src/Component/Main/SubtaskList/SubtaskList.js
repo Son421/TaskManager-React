@@ -1,64 +1,44 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import './SabtaskList.css';
 import Form from "../Form/Form";
-import Sabtask from "./Sabtask/Sabtask";
+import Subtask from "./Subtask/Subtask";
 import constants from "../../constants";
-import { TiArrowSortedDown } from "react-icons/ti";
-import { TiArrowSortedUp } from "react-icons/ti";
-import { TiTimes } from "react-icons/ti";
-import { TiTickOutline } from "react-icons/ti";
-import { TiTrash } from "react-icons/ti";
+import {TiArrowSortedDown, TiArrowSortedUp, TiTimes, TiTickOutline, TiTrash} from "react-icons/ti";
+import {useDispatch} from "react-redux";
+import {subtaskRemove, subtaskDone} from "../../../features/shownTaskSlice";
 
-export default function SabtaskList(props) {
-  const [taskItems, setTaskItems] = useState([]);
+export default function SubtaskList(props) {
+  const dispatch = useDispatch();
 
   const [visibiluty, setVisibility] = useState(false);
 
   const [elements, setElemets] = useState({elementName: '', elementDescription: '', 
   elementHiddenStyle: 'sabtask--block__hidden', elementIndex: 0, elementDone: false});
 
-  useEffect(() => {
-    setTaskItems(props.element);
-  }, []);
-
-  useEffect(() => {
-    addSub();
-  }, [taskItems]);
-
   function changeVisibility(){
     setVisibility(!visibiluty);
   }
 
-  function addProperty(elem){
-    setTaskItems(elem.version = constants.subtaskVersion);
-  }
-
   function sabtaskBlock(elemN, elemD, index){
-    setElemets({elementName: elemN, elementIndex: index,  elementDescription: elemD, elementHiddenStyle: "sabtask--block", elementDone: taskItems[index].done});
+    setElemets({elementName: elemN, elementIndex: index, elementDescription: elemD, elementHiddenStyle: "sabtask--block", elementDone: props.subtask[index].done});
   }
 
   function clouseElemnet(){
     setElemets({elementHiddenStyle: 'sabtask--block__hidden'});
   }
 
-  function addSub(){
-    props.addsabtask(taskItems);
-  }
-
   function remove(){
-    taskItems[elements.elementIndex].complete = true;
-    let removed = taskItems.filter(el => el.complete === false);
-    setTaskItems(removed);
+    dispatch(subtaskRemove({taskId: props.taskId, taskListId: props.taskListId, subtaskId: elements.elementIndex}));
     setElemets({elementHiddenStyle: 'sabtask--block__hidden'});
   }
 
   function done(){
-    taskItems[elements.elementIndex].done = true;
-    setTaskItems(taskItems.slice(0));
-    sabtaskBlock(elements.elementName, elements.elementDescription, elements.elementIndex);
+    dispatch(subtaskDone({taskId: props.taskId, taskListId: props.taskListId, subtaskId: elements.elementIndex}));
+    setElemets({elementName: elements.elementName, elementDescription: elements.elementDescription, 
+    elementHiddenStyle: "sabtask--block", elementIndex: elements.elementIndex, elementDone: true});
   }
 
-  if(taskItems.length > 0){
+  if(props.subtask.length > 0){
     if(!visibiluty){
       return (
         <div className="sabtasklist--grid__wrapper">
@@ -66,7 +46,7 @@ export default function SabtaskList(props) {
             <button className="button--sabtask__clouse" onClick={changeVisibility}> Subtask <TiArrowSortedDown/> </button>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={constants.subtaskVersion}/> 
+            <Form version={constants.subtaskVersion} taskId={props.taskId} taskListId={props.taskListId}/> 
           </div>
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
@@ -84,12 +64,12 @@ export default function SabtaskList(props) {
         <div className="sabtasklist--grid__wrapper">  
           <div>
             <button className="button--sabtask__open" onClick={changeVisibility}> Subtask <TiArrowSortedUp/> </button>
-            {taskItems.map((i, index) => (
-              <Sabtask element={i} key={index} id={index} sabtaskBlock={sabtaskBlock}/>
+            {props.subtask.map((i, index) => (
+              <Subtask element={i} key={index} id={index} sabtaskBlock={sabtaskBlock}/>
             ))}
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={constants.subtaskVersion}/> 
+            <Form version={constants.subtaskVersion} taskId={props.taskId} taskListId={props.taskListId}/> 
           </div>
           <div className="sabtask--block__wrapper">
             <div className={elements.elementHiddenStyle}>
@@ -112,19 +92,19 @@ export default function SabtaskList(props) {
             <button className="button--sabtask__clouse" onClick={changeVisibility}> Subtask <TiArrowSortedDown/> </button>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={constants.subtaskVersion}/> 
+            <Form version={constants.subtaskVersion} taskId={props.taskId} taskListId={props.taskListId}/> 
           </div>
         </div>
       );
     }else{
       return (
-        <div  className="sabtasklist--grid__wrapper">
+        <div className="sabtasklist--grid__wrapper">
           <div>
             <button className="button--sabtask__open" onClick={changeVisibility}> Subtask <TiArrowSortedUp/> </button>
             <div className="no__sabtask"> Сабтасків немає </div>
           </div>
           <div className="form--wrapper">
-            <Form taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} version={constants.subtaskVersion}/> 
+            <Form version={constants.subtaskVersion} taskId={props.taskId} taskListId={props.taskListId}/> 
           </div>
         </div>
       );

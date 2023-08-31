@@ -1,7 +1,7 @@
 import React from "react";
-import './Sabtask.css';
+import './Subtask.css';
 
-export default function Sabtask(props) {
+export default function Subtask(props) {
     function showBlock(){
         props.sabtaskBlock(props.element.name, props.element.description, props.id);
     }
@@ -14,4 +14,3 @@ export default function Sabtask(props) {
         </div>
     );
 }
-

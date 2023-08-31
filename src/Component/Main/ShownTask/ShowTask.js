@@ -1,50 +1,35 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import TaskList from "../TaskList/TaskList";
 import Form from "../Form/Form"
 import constants from "../../constants";
+import {useSelector, useDispatch} from "react-redux";
+import {shownTaskRemove} from '../../../features/shownTaskSlice'
 
-export default function ShowTask(props) {
-  const [taskItems, setTaskItems] = useState([]);
+export default function ShowTask(props) {  
+  const taskList = useSelector((state) => state.shownTask.value);
+  
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('taskItems'));
-    if(items){
-      setTaskItems(items);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('taskItems', JSON.stringify(taskItems));
-  }, [taskItems]);
-
-  function addProperty(elem){
-    setTaskItems(elem.version = constants.TaskListVersion, elem.taskArr = []);
+  function removeTaskList(item){
+    const id = taskList.indexOf(item)
+    dispatch(shownTaskRemove(id));
   }
 
-  function addToTaskArr(){
-    setTaskItems(taskItems.slice(0));
-  }
-
-  function removeTaskList(){
-    let removed = taskItems.filter(el => el.complete === false);
-    setTaskItems(removed);
-  }
-
-  if(taskItems.length > 0){
+  if(taskList.length > 0){
     return (
       <div>
         <div>
-          <Form version={constants.TaskListVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
+          <Form version={constants.TaskListVersion}/> 
         </div>
-        {taskItems.map((i, index) => (
-          <TaskList element={i} key={index} addToTaskArr={addToTaskArr} removeTaskList={removeTaskList} />
+        {taskList.map((taskListItem, index) => (
+          <TaskList element={taskListItem} key={index} removeTaskList={removeTaskList} />
         ))}
       </div>
     );
   }else{
     return(
       <div>
-        <Form version={constants.TaskListVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} />
+        <Form version={constants.TaskListVersion}/>
         <div>         
         </div>
       </div>

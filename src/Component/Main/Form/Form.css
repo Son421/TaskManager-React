@@ -24,8 +24,7 @@
 	margin: 24px;
 }
 
-.form-style-4
-{
+.form-style-4{
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #fff;
@@ -176,7 +175,6 @@
 }
 
 .form-style-5{
-
 	width: 450px;
 	font-size: 16px;
 	background-color: rgb(31, 34, 58);
@@ -186,8 +184,7 @@
 	border-radius: 0px 5px 5px 0px;
 }
 
-.form-style-5
-{
+.form-style-5{
 	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 16px;
 	color: #fff;
@@ -221,8 +218,7 @@
 }
 
 .form-style-5 textarea:focus, 
-.form-style-5 input[type=text]:focus
-{
+.form-style-5 input[type=text]:focus{
 	border-bottom: 1px dashed #D9FFA9;
 }
 
@@ -264,14 +260,14 @@
 	visibility: hidden;
 }
 
-.form-style-4.form__error input[type=text]{
+.form-style-4:required{
 	border-bottom: 1px dashed #da1010;
 }
 
-.form-style-1.form__error input[type=text] {
+.form-style-1:required {
 	border-bottom: 1px dashed #da1010;
 }
 
-.form-style-5.form__error input[type=text] {
+.form-style-5:required{
 	border-bottom: 1px dashed #da1010;
 }

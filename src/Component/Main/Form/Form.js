@@ -1,37 +1,35 @@
 import React, {useState} from "react";
 import constants from "../../constants";
-import './Form.css'
-import { TiArrowSortedDown } from "react-icons/ti";
-import { TiArrowSortedUp } from "react-icons/ti";
+import './Form.css';
+import {TiArrowSortedDown, TiArrowSortedUp} from "react-icons/ti";
+import {useDispatch} from "react-redux";
+import {shownTaskAdded, addTaskArr, subtaskAdded} from '../../../features/shownTaskSlice'
 
 export default function Form(props) {
-  const [visibiluty, setVisibility] = useState(false);
+  const dispatch = useDispatch();
 
-  const [emptyInput, setEmptyInput] = useState(false);
+  const [visibiluty, setVisibility] = useState(false);
 
   const [taskItem, setTaskItem] = useState({
     name: '',
-    description: '',
-    complete: false,
-    done: false
+    description: ''
   });
 
   let styleVersion = '';
   let styleVersionButton = '';
 
-  if(props.version === constants.TaskVersion){
-    styleVersion = 'form-style-4'
-    styleVersionButton = 'button--form__visibility'
-  }else if(props.version === constants.subtaskVersion){
-    styleVersion = 'form-style-1'
-    styleVersionButton = 'button__form__visibility--sabtask'
-  }else{
-    styleVersion = 'form-style-5'
-    styleVersionButton = 'button--form__visibility--TaskList'
-  }
-
-  if(emptyInput){
-    styleVersion += ' form__error';
+  switch(props.version) {
+    case constants.TaskVersion: 
+      styleVersion = 'form-style-4'
+      styleVersionButton = 'button--form__visibility'
+    break;
+    case constants.subtaskVersion: 
+      styleVersion = 'form-style-1'
+      styleVersionButton = 'button__form__visibility--sabtask'
+    break;
+    default:
+      styleVersion = 'form-style-5'
+      styleVersionButton = 'button--form__visibility--TaskList'
   }
 
   function changeVisibility(){
@@ -48,14 +46,18 @@ export default function Form(props) {
  }
 
   function addTaskItem(){
-    if(taskItem.name == ''){
-      setEmptyInput(true);
-    }else{
-      setEmptyInput(false);
-      props.addProperty(taskItem);
-      let updated = props.taskItems.concat(taskItem);
-      props.setTaskItems(updated);
-      setTaskItem({description: '', name: '', complete: false, done: false});
+    switch(props.version) {
+      case constants.TaskVersion: 
+        dispatch(addTaskArr({id: props.id, taskElement: taskItem}));
+        setTaskItem({name: '', description: '', priority: false, done: false});
+      break;
+      case constants.subtaskVersion: 
+        dispatch(subtaskAdded({taskId: props.taskId, taskListId: props.taskListId, subtaskItem: taskItem}));
+        setTaskItem({name: '', description: '', priority: false, done: false});
+      break;
+      default:
+        dispatch(shownTaskAdded(taskItem));
+        setTaskItem({name: '', description: '', priority: false, done: false});
     }
   }
   
@@ -73,11 +75,11 @@ export default function Form(props) {
         <form className={styleVersion}>
           <label>
             <span> {props.version} name</span>
-            <input type="text" name="name" autoComplete="off" value={taskItem.name} onChange={handleChange} maxlength="70" />
+            <input type="text" name="name" autoComplete="off" value={taskItem.name} onChange={handleChange} maxlength="70" required />
           </label>
           <label>
             <span className="visibility"> {props.version} description</span>
-            <textarea name="description" value={taskItem.description} onChange={handleChange} maxlength="250" ></textarea>
+            <textarea name="description" value={taskItem.description} onChange={handleChange} maxlength="250" required></textarea>
           </label>
             <button  type="button" onClick={addTaskItem}> Send </button>
         </form>

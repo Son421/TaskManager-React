@@ -1,32 +1,28 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import './CompletedTask.css'
 import CompletedItem from "./CompletedItem/CompletedItem";
-import { TiTrash } from "react-icons/ti";
+import {TiTrash} from "react-icons/ti";
+import {useSelector, useDispatch} from "react-redux";
+import { completedRemove, completedCrear } from "../../../features/completedSlice";
 
 export default function CompletedTask(props) {
-  const [completedTaskItem, setCompletedTaskItem] = useState([]);
+  const completedTask = useSelector((state) => state.completed.value);
+  
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem('completedTaskItem'));
-    if(items){
-      setCompletedTaskItem(items);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
-  }, [completedTaskItem]);
-
-  function remove(){
-    let removed = completedTaskItem.filter(el => el.complete === false);
-    setCompletedTaskItem(removed);
+  function remove(elem){
+    const id = completedTask.indexOf(elem)
+    dispatch(completedRemove(id));
   }
 
   function clear(){
-    setCompletedTaskItem([]);
+    dispatch(completedCrear());
   }
 
- if(completedTaskItem.length > 0){
+  console.log(completedTask);
+  
+  // completedTask.length > 0
+ if(completedTask.length > 0){
   return (
     <div>
       <div>
@@ -38,8 +34,8 @@ export default function CompletedTask(props) {
             <TiTrash onClick={clear} className="completedTask--clear"/>
           </div>
           <div>
-            {completedTaskItem.map((i, index) => (
-              <CompletedItem element={i} key={index} remove={remove}/>
+            {completedTask.map((completedTaskElement, index) => (
+              <CompletedItem element={completedTaskElement} key={index} remove={remove}/>
             ))}
           </div>
         </div>

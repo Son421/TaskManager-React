@@ -1,26 +1,24 @@
 import React from "react";
 import CompletedSubtask from "./CompletedSubtask/CompletedSubtask";
 import './CompletedItem.css';
-import { TiTrash } from "react-icons/ti";
-import { TiStarFullOutline } from "react-icons/ti";
+import {TiTrash, TiStarFullOutline} from "react-icons/ti";
 
 export default function CompletedItem(props) {
-    function clear(){
-        props.element.complete = true; 
-        props.remove();
-    }
-    
     let starStyle = 'completed__task--no_prioriti';
     
     if(props.element.priority){
         starStyle = 'completed__task--prioriti';
+    }
+    
+    function remove(){
+        props.remove(props.element);
     }
 
  return (
     <div>
         <div className="completed__task--wrapper">
             <TiStarFullOutline className={starStyle}/>
-            <TiTrash onClick={clear} className="completed__task--clear"/>
+            <TiTrash onClick={remove} className="completed__task--clear"/>
             <p className="completed__task--name"> {props.element.name}</p>
             <p className="completed__task--description"> {props.element.description} </p>
         </div>

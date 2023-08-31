@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import CompletedSubtaskItem from "./CompletedSubtaskItem/CompletedSubtaskItem";
 import './CompletedSubtask.css';
-import { TiArrowSortedDown } from "react-icons/ti";
-import { TiArrowSortedUp } from "react-icons/ti";
-import { TiTimes } from "react-icons/ti";
+import {TiArrowSortedDown, TiArrowSortedUp, TiTimes} from "react-icons/ti";
 
 export default function CompletedSubtask(props) {
    const [buttonActivate, setButtonActivate] = useState(false);

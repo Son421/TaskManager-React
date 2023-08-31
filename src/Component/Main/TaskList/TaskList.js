@@ -1,89 +1,40 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import './TaskList.css'
 import Form from "../Form/Form";
 import Task from "./Task/Task";
-import { TiTrash } from "react-icons/ti";
-import { TiTickOutline } from "react-icons/ti";
+import {TiTrash, TiTickOutline} from "react-icons/ti";
 import constants from "../../constants";
+import {useSelector, useDispatch} from "react-redux";
+import {completedAll} from '../../../features/completedSlice'
 
 export default function TaskList(props) {
-    const [taskItems, setTaskItems] = useState([]);
+    const taskList = useSelector((state) => state.shownTask.value);
+    
+    const dispatch = useDispatch();
 
-    const [completedTaskItem, setCompletedTaskItem] = useState([]);
-
-    let localStWrapper = 0; 
-
-    useEffect(() => {
-        setTaskItems(props.element.taskArr);
-    }, []);
-
-    useEffect(() => {
-        completed();
-    }, [props, localStWrapper]);
-
-    useEffect(() => {
-        addTask();
-    }, [taskItems]);
-
-    useEffect(() => {
-        if(completedTaskItem.length !== 0){
-            localStorage.setItem('completedTaskItem', JSON.stringify(completedTaskItem));
-            localStWrapper++;
-        }
-    }, [completedTaskItem]);
-
-    function completeTask(){
-        let completed = taskItems.find(el => el.done === true);
-        let up = completedTaskItem.concat(completed);
-        setCompletedTaskItem(up);
-        let removed = taskItems.filter(el => el.done === false);
-        setTaskItems(removed);
-    }
-
-    function addProperty(elem){
-        setTaskItems(elem.priority = false, elem.subtaskArr = [], elem.version = constants.TaskVersion, elem.taskListIs = props.element.name);
-    }
-
-    function remove(){
-        let removed = taskItems.filter(el => el.complete === false);
-        setTaskItems(removed);
-    }
+    const id = taskList.indexOf(props.element);
 
     function removeTaskL(){
-        props.element.complete = true; 
-        props.removeTaskList();
-    }
-
-    function addTask(){
-        props.element.taskArr = taskItems;
-        props.addToTaskArr();
-    }
-
-    function addSubtask(){
-        setTaskItems(taskItems.slice(0));
-    }
-
-    function completed(){
-        let items = JSON.parse(localStorage.getItem('completedTaskItem'));
-        setCompletedTaskItem(items);
+        props.removeTaskList(props.element);
     }
 
     function doneAll(){
-
+        dispatch(completedAll(props.element.taskListArr));
+        props.removeTaskList(props.element);
     }
-
-    if( taskItems.length > 0){   
+    
+    if(props.element.taskListArr.length > 0){   
         return (
             <div className="wrapper">
                 <span className="caption"> TaskList {props.element.name} </span>
                 <div className="taskList--grid">
                     <div className="taskList--wrapper">
-                        {taskItems.map((i, index) => (
-                            <Task element={i} key={index} remove={remove} completeTask={completeTask} addSubtask={addSubtask} />
+                        {props.element.taskListArr.map((taskItem, index) => (
+                            <Task element={taskItem} key={index} taskListId={id} taskId={index}/>
                         ))}
                     </div>
                     <div className="form--grid">
-                        <Form version={constants.TaskVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
+                        <Form version={constants.TaskVersion} id={id}/> 
                     </div>
                 </div>
                 <div className="butoon-wrapper">
@@ -105,7 +56,7 @@ export default function TaskList(props) {
                         </div>
                     </div>
                     <div className="form--grid">
-                        <Form version={constants.TaskVersion} taskItems={taskItems} setTaskItems={setTaskItems} addProperty={addProperty} /> 
+                        <Form version={constants.TaskVersion} id={id}/> 
                     </div>
                 </div>
                 <TiTrash onClick={removeTaskL} className="remove--task-l"/>
